@@ -63,6 +63,7 @@ body {
   height: 50px;
   background: red;
   position: absolute;
+  animation: moveBox 2s linear 5;
 }
 
 /*--------------- EXERCISE 4 STYLES ---------------- */
@@ -91,7 +92,7 @@ body {
 .modal {
   display: none; 
   position: fixed; 
-  z-index: 1;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100%; 
@@ -105,22 +106,38 @@ body {
 .modal-content {
   background-color: #d32727;
   margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
+  padding: 10px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 50%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
 .close {
   color: black;
   float: right;
-  font-size: 28px;
+  font-size: 25px;
   font-weight: bold;
 }
 
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+@keyframes moveBox {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    left: 150px;
+    top: 0px;
+  }
+  50% {
+    left: 150px;
+    top: 150px;
+  }
+  75% {
+    left: 0px;
+    top: 150px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
 }
-

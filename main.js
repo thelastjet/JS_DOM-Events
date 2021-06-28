@@ -12,44 +12,47 @@ for (let el of headings) {
 /*----------- Exercise #2: CREATING/APPENDING/INSERTING ELEMENTS/OBJECTS -----------*/
 
 // TODO: Create a paragraph element using this element.createElement() and put this text inside "This node was created using the createElement() method"
-const newParagraph = document.createElement("p");
+let newParagraph = document.createElement("p");
 newParagraph.textContent = "This node was created using the createElement() method";
 // TODO: Append the created node to the parent node using the element.appendChild() method
-const parent = document.getElementById("parent");
+let parent = document.getElementById("parent");
 parent.appendChild(newParagraph);
-// TODO: Create a <a> element using this element.createElement() and put this text inside "I am a <a> tag"
-const newElement = document.createElement("a");
-newElement.innerText = "I am a <a> tag"
+// TODO: Create an <a> element using this element.createElement() and put this text inside "I am an <a> tag"
+let newA = document.createElement("a");
+newA.textContent = "Link to my Github for this exercise!"
 // TODO: Insert the created <a> in the parent but before the <p> you just created using the element.insertBefore() method
-parent.insertBefore(newElement, newParagraph);
+parent.insertBefore(newA, newParagraph);
 // BONUS: Add a link href to the <a>
-newElement.href = "https://github.com/thelastjet/JS_DOM-Events";
+newA.href = "https://github.com/thelastjet/JS_DOM-Events";
 
 /*----------- Exercise #3: REMOVING/REPLACING ELEMENTS/OBJECTS -----------*/
 
 // TODO: Replace the "Child Node" with a new <p> element that reads "New Child Node"
-const newPElement = document.createElement("p");
-newPElement.textContent = "New Child Node";
-const parentExercise3 = document.getElementById("exercise3");
-const child = document.getElementById("N1");
+let newPElement = document.createElement("p");
+newPElement.innerHTML = "New Child Node";
+let parentExercise3 = document.getElementById("exercise3");
+let child = document.getElementById("N1");
 parentExercise3.replaceChild(newPElement, child);
 // TODO: Remove the "New Child Node"
-parentExercise3.removeChild(newPElement);
+setTimeout(function () {parentExercise3.removeChild(newPElement); }, 3000);
+
 /*----------- Exercise #4: ANIMATIONS ----------- */
 
 // TODO: Write your JavaScript here to make the red box go from right to left
-const timer = setInterval(moveLeft, 20);
-let boxPosition = 0;
-const box = document.getElementById("box");
 
-function moveLeft() {
-    if (boxPosition >= 150) {
-        clearInterval(timer);
-    } else {
-        boxPosition++;
-        box.style.right = boxPosition + "px";
-    }
-}
+//COMMENTED OUT THE CODE AND CHANGED TO USING CSS FOR THIS!!!!
+// const box = document.getElementById("box");
+// let boxPosition = 0;
+// const timer = setInterval(moveRight, 20);
+
+// function moveRight() {
+//     if (boxPosition >= container.offsetWidth - box.offsetWidth) {
+//         clearInterval(timer);
+//     } else {
+//         boxPosition++;
+//         box.style.left = boxPosition + "px";
+//     }
+// }
 
 // BONUS - Make the red box go all the way around the perimeter of the green box */
 
@@ -60,7 +63,7 @@ function moveLeft() {
 // BONUS: The modal popup should be able to be closed. Refactor for this functionality
 
 function show() {
-	let newDiv = document.createElement("div");
+    let newDiv = document.createElement("div");
 	newDiv.setAttribute('class', 'modal');
 	let parentDiv = document.getElementsByClassName("exercise5")[0];
 	parentDiv.appendChild(newDiv);
@@ -73,8 +76,7 @@ function show() {
     newDiv2.appendChild(paragraph);
 	let newSpan = document.createElement("span");
 	newSpan.setAttribute('class', 'close');
-    newSpan.setAttribute('innerText', '&times;');
-    newSpan.textContent = 'x';
+    newSpan.innerHTML = 'x';
 	newDiv2.insertBefore(newSpan, paragraph);
     document.getElementsByClassName("modal")[0].style.display = "block";
     newSpan.onclick = function() {
