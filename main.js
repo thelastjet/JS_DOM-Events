@@ -63,27 +63,23 @@ setTimeout(function () {parentExercise3.removeChild(newPElement); }, 3000);
 // BONUS: The modal popup should be able to be closed. Refactor for this functionality
 
 function show() {
-    let newDiv = document.createElement("div");
-	newDiv.setAttribute('class', 'modal');
-	let parentDiv = document.getElementsByClassName("exercise5")[0];
-	parentDiv.appendChild(newDiv);
-    let newDiv2 = document.createElement("div");
-    newDiv2.setAttribute('class', 'modal-content');
-    let parentDiv2 = document.getElementsByClassName("modal")[0];
-    parentDiv2.appendChild(newDiv2);
-    let paragraph = document.createElement("p");
-    paragraph.textContent = "Clicking the button triggers the onclick event, which calls the JS function show()... which alerts the user";
-    newDiv2.appendChild(paragraph);
-	let newSpan = document.createElement("span");
-	newSpan.setAttribute('class', 'close');
-    newSpan.innerHTML = 'x';
-	newDiv2.insertBefore(newSpan, paragraph);
-    document.getElementsByClassName("modal")[0].style.display = "block";
-    newSpan.onclick = function() {
-        document.getElementsByClassName("modal")[0].style.display = "none";
-        location.reload();
-    }
+    let modal = document.createElement("div");
+    modal.setAttribute('id', 'modal');
+    let modalP = document.createElement("p");
+    let modalBtn = document.createElement("button");
+    modalBtn.textContent = "X";
+    modalBtn.addEventListener("click", function () {
+        document.body.removeChild(modal);
+    });
+
+    modalP.textContent = "Clicking the button triggers the onclick event, which calls the JS function show()... which alerts the user";
+    modal.appendChild(modalBtn);
+    modal.appendChild(modalP);
+    document.body.appendChild(modal);    
 }
+
+let btn = document.getElementById("btn");
+btn.addEventListener("click", show);
 
 
 
