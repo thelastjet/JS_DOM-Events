@@ -51,6 +51,9 @@ body {
   height: auto;
 }
 
+
+
+/*--------------- EXERCISE 4 STYLES ---------------- */
 #container {
   width: 200px;
   height: 200px;
@@ -66,7 +69,6 @@ body {
   animation: moveBox 2s linear 5;
 }
 
-/*--------------- EXERCISE 4 STYLES ---------------- */
 .exercise4 {
   text-align: center;
   margin: 5px;
